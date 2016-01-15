@@ -1,72 +1,41 @@
 <?php
+namespace App\Cliqnship\Authentication\Http\Controllers;
 
-namespace App\Http\Controllers\Auth;
+use App\Abstracts\AbstractController;
+use App\Cliqnship\Authentication\Http\Requests\AuthRequest;
+use App\Models\User;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
-use App\User;
-use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
-class AuthController extends Controller
+class AuthController extends AbstractController
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function auth(AuthRequest $request)
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $credentials = $request->only(['username', 'password']);
+        $user = User::where('username', $credentials['username'])->first();
+
+        $customClaims = ['user_id' => $user->id];
+
+        try {
+            // attempt to verify the credentials and create a token for the user
+            if (! $token = \JWTAuth::attempt($credentials, $customClaims)) {
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        // all good so return the token
+        return response()->json(compact('token'));
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function info()
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
+        $token   = \JWTAuth::getToken();
+        $payload =  \JWTAuth::getPayload($token);
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user = User::with('customerDetail', 'contactNumbers', 'group')->where('id', $payload['user_id'])->first();
+
+        return $user;
     }
 }
