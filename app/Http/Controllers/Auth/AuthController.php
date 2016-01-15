@@ -1,12 +1,14 @@
 <?php
-namespace App\Cliqnship\Authentication\Http\Controllers;
+namespace App\Cliqnship\Authentication\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
+use App\Http\Requests\AuthRequests;
+use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends ApiController
 {
-    public function auth(AuthRequest $request)
+    public function auth(AuthRequests $request)
     {
         $credentials = $request->only(['username', 'password']);
         $user = User::where('username', $credentials['username'])->first();
@@ -32,7 +34,7 @@ class AuthController extends ApiController
         $token   = \JWTAuth::getToken();
         $payload =  \JWTAuth::getPayload($token);
 
-        $user = User::with('customerDetail', 'contactNumbers', 'group')->where('id', $payload['user_id'])->first();
+        $user = User::where('id', $payload['user_id'])->first();
 
         return $user;
     }
