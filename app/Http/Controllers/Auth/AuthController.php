@@ -1,12 +1,10 @@
 <?php
 namespace App\Cliqnship\Authentication\Http\Controllers;
 
-use App\Abstracts\AbstractController;
-use App\Cliqnship\Authentication\Http\Requests\AuthRequest;
-use App\Models\User;
+use App\Http\Controllers\ApiController;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class AuthController extends AbstractController
+class AuthController extends ApiController
 {
     public function auth(AuthRequest $request)
     {
