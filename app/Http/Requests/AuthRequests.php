@@ -12,8 +12,8 @@ class AuthRequests extends AbstractRequests
     public function rules()
     {
         return [
-            'username' => 'required',
-            'password' => 'required',
+            'email' => 'required|min:5|email',
+            'password' => 'required|min:3',
         ];
     }
 

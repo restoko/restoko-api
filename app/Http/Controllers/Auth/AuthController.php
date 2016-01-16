@@ -1,5 +1,5 @@
 <?php
-namespace App\Cliqnship\Authentication\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\AuthRequests;
@@ -10,8 +10,8 @@ class AuthController extends ApiController
 {
     public function auth(AuthRequests $request)
     {
-        $credentials = $request->only(['username', 'password']);
-        $user = User::where('username', $credentials['username'])->first();
+        $credentials = $request->only(['email', 'password']);
+        $user = User::where('email', $credentials['email'])->first();
 
         $customClaims = ['user_id' => $user->id];
 
@@ -31,8 +31,12 @@ class AuthController extends ApiController
 
     public function info()
     {
-        $token   = \JWTAuth::getToken();
-        $payload =  \JWTAuth::getPayload($token);
+        try {
+            $token   = \JWTAuth::getToken();
+            $payload =  \JWTAuth::getPayload($token);
+        } catch (JWTException $e) {
+            return ['error' => 'no auth token provided'];
+        }
 
         $user = User::where('id', $payload['user_id'])->first();
 
