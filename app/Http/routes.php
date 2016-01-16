@@ -26,6 +26,17 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+/*
+|-------------------------------------------------------------------------
+| API V1 Routes
+|-------------------------------------------------------------------------
+| This is the service or API routes for version 1
+|
+*/
+Route::group(['prefix' => 'api/v1/'], function() {
+    // Auth
+    Route::group(['prefix' => 'o/auth'], function() {
+        Route::post('/', 'Auth\AuthController@auth');
+        Route::post('/me', 'Auth\AuthController@info');
+    });
 });
