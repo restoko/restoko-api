@@ -39,4 +39,15 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::post('/', 'Auth\AuthController@auth');
         Route::post('/me', 'Auth\AuthController@info');
     });
+
+    // Category
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/', 'Category\CategoriesController@all');
+    });
+
+    // Products
+    Route::group(['prefix' => 'products'], function() {
+        Route::get('/', 'Product\ProductsController@all');
+    });
+
 });
