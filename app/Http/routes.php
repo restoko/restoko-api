@@ -51,6 +51,9 @@ Route::group(['prefix' => 'api/v1/'], function() {
     // Products
     Route::group(['prefix' => 'products'], function() {
         Route::get('/', 'Product\ProductsController@all');
+        Route::post('/', 'Product\ProductsController@store');
+        Route::post('/{productId}','Product\ProductsController@update');
+        Route::post('/{productId}/delete','Product\ProductsController@destroy');
     });
 
 });

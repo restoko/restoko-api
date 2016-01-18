@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder
             [
                 'user_groups_id'    => 2,
                 'firstname'         => 'mark wayne',
-                'middlename'        => '',
+                'middlename'        => 'gurrea',
                 'lastname'          => 'pulido',
                 'email'             => 'cashier@javalogy.ph',
                 'password'          => Hash::make('password')
@@ -41,7 +41,7 @@ class UserTableSeeder extends Seeder
             [
                 'user_groups_id'    => 4,
                 'firstname'         => 'kitchen',
-                'middlename'        => '',
+                'middlename'        => 'k',
                 'lastname'          => 'kitchen',
                 'email'             => 'kitchen@javalogy.ph',
                 'password'          => Hash::make('password')

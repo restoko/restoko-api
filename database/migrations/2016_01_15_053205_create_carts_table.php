@@ -12,7 +12,12 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('cart_table', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->mediumText('description');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cart_table');
     }
 }

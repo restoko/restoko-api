@@ -23,4 +23,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function userGroup()
+    {
+
+    }
+
+    public function category()
+    {
+
+    }
+
+    public function product()
+    {
+
+    }
+
 }
