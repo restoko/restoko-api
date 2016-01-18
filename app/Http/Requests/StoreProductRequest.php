@@ -13,6 +13,8 @@ class StoreProductRequest extends AbstractRequests
     {
         return [
             'name' => 'required|min:3',
+            'price'=> 'required|numeric',
+            'description'=>'required|min:5',
         ];
     }
 }
