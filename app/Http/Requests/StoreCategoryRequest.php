@@ -13,7 +13,7 @@ class StoreCategoryRequest extends AbstractRequests
     {
         return [
             'name' => 'required|min:3',
-            'description' => 'required|min:5'
+            'description' => 'required|min:5',
         ];
     }
 
