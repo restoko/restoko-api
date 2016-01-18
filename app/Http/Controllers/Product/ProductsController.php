@@ -44,7 +44,7 @@ class ProductsController extends ApiController
         $product = Category::find($productId)->delete();
 
         if(! $product)   {
-            return $this->responseNotFound('Product Id not found');
+            return $this->responseNotFound(['Product Id not found']);
         }
 
         return $this->responseOk($product);
