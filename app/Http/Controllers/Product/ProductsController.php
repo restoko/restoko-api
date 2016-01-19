@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\StoreProductRequest;
-use App\Models\Category;
 use App\Models\Product;
 
 class ProductsController extends ApiController
