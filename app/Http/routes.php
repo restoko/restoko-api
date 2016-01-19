@@ -40,6 +40,14 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::post('/me', 'Auth\AuthController@info');
     });
 
+    // Users
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', 'User\UsersController@all');
+        Route::post('/', 'User\UsersController@store');
+        Route::post('/{userId}','User\UsersController@update');
+        Route::post('/{userId}/delete','User\UsersController@destroy');
+    });
+
     // Category
     Route::group(['prefix' => 'categories'], function() {
         Route::get('/', 'Category\CategoriesController@all');
