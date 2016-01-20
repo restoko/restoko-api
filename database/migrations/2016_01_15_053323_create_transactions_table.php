@@ -16,6 +16,7 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->integer('cart_id')->unsinged();
             $table->integer('discount_id')->unsinged();
+            $table->double('total');
             $table->string('status');
             $table->timestamps();
         });
