@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Category;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
+use Carbon\Carbon;
 
 class CategoriesController extends ApiController
 {
@@ -14,6 +15,8 @@ class CategoriesController extends ApiController
         if ($categories->isEmpty()) {
             return $this->responseNotFound(['Categories is empty']);
         }
+
+        $categories = $this->parseCategories($categories);
 
         return $this->responseOk($categories);
     }
@@ -47,5 +50,22 @@ class CategoriesController extends ApiController
         }
 
         return $this->responseOk($category);
+    }
+
+    private function parseCategories($categories)
+    {
+        $result = [];
+        foreach ($categories as $category) {
+            $result[] = [
+                'id'    => $category['id'],
+                'slug'  => $category['slug'],
+                'name'  => strtoupper($category['name']),
+                'description'   => $category['description'],
+                'created_at'    => Carbon::createFromTimestamp(strtotime($category['created_at']))->toFormattedDateString(),
+                'updated_at'    => Carbon::createFromTimestamp(strtotime($category['updated_at']))->toFormattedDateString()
+            ];
+        }
+
+        return $result;
     }
 }
