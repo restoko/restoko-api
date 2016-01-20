@@ -17,6 +17,7 @@ class CreateCartItemsTable extends Migration
             $table->integer('cart_id')->unsinged();
             $table->integer('product_id')->unsigned();
             $table->integer('quantity');
+            $table->double('unit_price');
             $table->string('status');
             $table->timestamps();
         });
