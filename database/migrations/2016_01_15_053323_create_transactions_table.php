@@ -12,7 +12,13 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('transactions', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('cart_id')->unsinged();
+            $table->integer('discount_id')->unsinged();
+            $table->string('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('transaactions');
     }
 }
