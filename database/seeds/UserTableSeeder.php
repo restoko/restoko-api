@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
 
         $users = [
             [
-                'user_groups_id'    => 1,
+                'user_group_id'    => 1,
                 'firstname'         => 'alleo',
                 'middlename'        => 'pineda',
                 'lastname'          => 'indong',
@@ -23,7 +23,7 @@ class UserTableSeeder extends Seeder
                 'password'          => Hash::make('password')
             ],
             [
-                'user_groups_id'    => 2,
+                'user_group_id'    => 2,
                 'firstname'         => 'mark wayne',
                 'middlename'        => 'gurrea',
                 'lastname'          => 'pulido',
@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
                 'password'          => Hash::make('password')
             ],
             [
-                'user_groups_id'    => 3,
+                'user_group_id'    => 3,
                 'firstname'         => 'waiter',
                 'middlename'        => '',
                 'lastname'          => 'waiter',
@@ -39,7 +39,7 @@ class UserTableSeeder extends Seeder
                 'password'          => Hash::make('password')
             ],
             [
-                'user_groups_id'    => 4,
+                'user_group_id'    => 4,
                 'firstname'         => 'kitchen',
                 'middlename'        => 'k',
                 'lastname'          => 'kitchen',
