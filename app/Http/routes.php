@@ -56,6 +56,14 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::post('/{categoryId}/delete', 'Category\CategoriesController@destroy');
     });
 
+    // Table
+    Route::group(['prefix' => 'tables'], function() {
+        Route::get('/', 'Table\TablesController@all');
+        Route::post('/', 'Table\TablesController@store');
+        Route::post('/{tableId}', 'Table\TablesController@update');
+        Route::post('/{tableId}/delete', 'Table\TablesController@destroy');
+    });
+
     // Products
     Route::group(['prefix' => 'products'], function() {
         Route::get('/', 'Product\ProductsController@all');
