@@ -44,7 +44,7 @@ class ProductsController extends ApiController
 
     public function destroy($productId)
     {
-        $product = Category::find($productId)->delete();
+        $product = Product::find($productId)->delete();
 
         if(! $product)   {
             return $this->responseNotFound(['Product Id not found']);
