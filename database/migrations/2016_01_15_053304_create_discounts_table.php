@@ -12,7 +12,13 @@ class CreateDiscountsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('discounts', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('type');
+            $table->double('amount');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateDiscountsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('discounts');
     }
 }
