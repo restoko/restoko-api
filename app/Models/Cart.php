@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    const COMPLETED = 'completed';
+    const ACTIVE    = 'active';
+    const CANCELLED = 'cancelled';
+
     protected $table = 'carts';
     protected $guarded = ['id'];
 
