@@ -39,7 +39,7 @@ class CartsController extends ApiController
         }
 
         // Update the table status
-        if ($this->makeTableOccupied($tableId)) {
+        if (! $this->makeTableOccupied($tableId)) {
             return $this->responseBadRequest(['Table not found']);
         }
 
