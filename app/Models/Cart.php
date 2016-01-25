@@ -8,4 +8,14 @@ class Cart extends Model
 {
     protected $table = 'carts';
     protected $guarded = ['id'];
+
+    public function table()
+    {
+        return $this->belongsTo('App\Table');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('App\CartItem');
+    }
 }

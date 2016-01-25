@@ -8,4 +8,9 @@ class Table extends Model
 {
     protected $table = 'tables';
     protected $guarded = ['id'];
+
+    public function carts()
+    {
+        return $this->hasMany('App\Cart');
+    }
 }
