@@ -14,9 +14,12 @@ class CartsController extends ApiController
      * @param $cartId
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getCart($cartId)
+    public function getCart($tableId)
     {
-        $cart = Cart::with('items.product.category')->where('id', $cartId)->first();
+        $cart = Cart::with('items.product.category')
+            ->where('table_id', $tableId)
+            ->where('status', Cart::ACTIVE)
+            ->first();
 
         if (! $cart) {
             return $this->responseNotFound(['There is no cart with that id']);
