@@ -60,6 +60,7 @@ class TablesController extends ApiController
                 'id'    => $table['id'],
                 'slug'  => $table['slug'],
                 'name'  => strtoupper($table['name']),
+                'status'        => $table['status'],
                 'created_at'    => Carbon::createFromTimestamp(strtotime($table['created_at']))->toFormattedDateString(),
                 'updated_at'    => Carbon::createFromTimestamp(strtotime($table['updated_at']))->toFormattedDateString()
             ];
