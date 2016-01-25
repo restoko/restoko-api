@@ -11,12 +11,12 @@ class TableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 20; $i++) {
+        for ($i = 1; $i < 10; $i++) {
             \App\Models\Table::create(
                 [
                     'name'  => 'table '.$i,
                     'slug'  => 'table-'.$i,
-                    'status'    => 'available'
+                    'status'    => 'occupied'
                 ]
             );
         }
