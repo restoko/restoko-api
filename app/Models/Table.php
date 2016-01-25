@@ -16,6 +16,6 @@ class Table extends Model
 
     public function carts()
     {
-        return $this->hasMany('App\Cart');
+        return $this->hasMany('App\Models\Cart');
     }
 }

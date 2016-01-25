@@ -15,11 +15,11 @@ class Cart extends Model
 
     public function table()
     {
-        return $this->belongsTo('App\Table');
+        return $this->belongsTo('App\Models\Table');
     }
 
     public function items()
     {
-        return $this->hasMany('App\CartItem');
+        return $this->hasMany('App\Models\CartItem');
     }
 }

@@ -7,6 +7,24 @@ use App\Models\Table;
 
 class CartsController extends ApiController
 {
+
+    /**
+     * Get the cart information
+     *
+     * @param $cartId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getCart($cartId)
+    {
+        $cart = Cart::with('items.product.category')->where('id', $cartId)->first();
+
+        if (! $cart) {
+            return $this->responseNotFound(['There is no cart with that id']);
+        }
+
+        return $this->responseOk($cart);
+    }
+
     /**
      * Create a new cart
      *
