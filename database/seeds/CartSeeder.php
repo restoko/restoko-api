@@ -21,15 +21,17 @@ class CartSeeder extends Seeder
         }
 
         $faker = Faker\Factory::create();
-        for ($i = 1; $i < 5; $i++) {
-            \App\Models\CartItem::create(
-                [
-                    'cart_id'    => $i,
-                    'product_id' => $faker->numberBetween(1, 7),
-                    'quantity'   => $faker->numberBetween(5, 20),
-                    'status'     => 'active'
-                ]
-            );
+        for ($i = 1; $i < 10; $i++) {
+            for ($k = 1; $k < 6; $k++) {
+                \App\Models\CartItem::create(
+                    [
+                        'cart_id'    => $i,
+                        'product_id' => $k,
+                        'quantity'   => $faker->numberBetween(5, 20),
+                        'status'     => 'active'
+                    ]
+                );
+            }
         }
     }
 }
