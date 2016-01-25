@@ -41,6 +41,34 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'product-4',
                 'description' => 'a product 4',
                 'price' => '1'
+            ],
+            [
+                'category_id'   => 4,
+                'name' => 'product 5',
+                'slug'  => 'product-5',
+                'description' => 'a product 5',
+                'price' => '1'
+            ],
+            [
+                'category_id'   => 4,
+                'name' => 'product 6',
+                'slug'  => 'product-6',
+                'description' => 'a product 6',
+                'price' => '1'
+            ],
+            [
+                'category_id'   => 4,
+                'name' => 'product 7',
+                'slug'  => 'product-7',
+                'description' => 'a product 7',
+                'price' => '1'
+            ],
+            [
+                'category_id'   => 4,
+                'name' => 'product 8',
+                'slug'  => 'product-8',
+                'description' => 'a product 8',
+                'price' => '1'
             ]
         ];
 
