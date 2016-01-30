@@ -21,6 +21,17 @@ class CategoriesController extends ApiController
         return $this->responseOk($categories);
     }
 
+    public function getCategoriesWithProducts()
+    {
+        $categories = Category::with('products')->get();
+
+        if ($categories->isEmpty()) {
+            return $this->responseNotFound(['Categories is empty']);
+        }
+
+        return $this->responseOk($categories);
+    }
+
     public function store(StoreCategoryRequest $request)
     {
         $input = $request->all();

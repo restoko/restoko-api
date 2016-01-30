@@ -51,6 +51,7 @@ Route::group(['prefix' => 'api/v1/'], function() {
     // Category
     Route::group(['prefix' => 'categories'], function() {
         Route::get('/', 'Category\CategoriesController@all');
+        Route::get('/products', 'Category\CategoriesController@getCategoriesWithProducts');
         Route::post('/', 'Category\CategoriesController@store');
         Route::post('/{categoryId}', 'Category\CategoriesController@update');
         Route::post('/{categoryId}/delete', 'Category\CategoriesController@destroy');
