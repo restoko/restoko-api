@@ -22,6 +22,17 @@ class ProductsController extends ApiController
         return $this->responseOk($result);
     }
 
+    public function getByProductId($productId)
+    {
+        $product = Product::where('id', $productId)->first();
+
+        if (! $product) {
+            return $this->responseNotFound('Product not found');
+        }
+
+        return $this->responseOk($product);
+    }
+
     public function store(StoreProductRequest $request)
     {
         $input= $request->all();
