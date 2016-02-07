@@ -27,6 +27,7 @@ class CartItemsController extends ApiController
             $result[] = [
                 'cart_item_id'  => $item['id'],
                 'product_name'  => $item['product']['name'],
+                'quantity'      => $item['quantity'],
                 'table'         => $item['cart']['table']['name'],
                 'status'        => $item['status']
             ];
