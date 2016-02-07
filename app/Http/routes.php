@@ -80,4 +80,9 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::post('/{tableId}/create', 'Pos\CartsController@createNewCart');
         Route::post('/{cartId}/items', 'Pos\CartItemsController@addItemToCart');
     });
+
+    // Kitchen
+    Route::group(['prefix' => 'kitchen'], function() {
+        Route::get('/', 'Kitchen\CartItemsController@getPendingOrders');
+    });
 });
