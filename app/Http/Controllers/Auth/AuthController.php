@@ -10,8 +10,12 @@ class AuthController extends ApiController
 {
     public function auth(AuthRequests $request)
     {
-        $credentials = $request->only(['email', 'password']);
-        $user = User::where('email', $credentials['email'])->first();
+        $credentials = $request->only(['username', 'password']);
+        $user = User::where('email', $credentials['username'])->first();
+
+        if (!$user) {
+            return $this->responseUnauthorized('Wrong credentials');
+        }
 
         $customClaims = ['user_id' => $user->id];
 

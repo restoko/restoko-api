@@ -33,12 +33,13 @@ Route::get('/', function () {
 | This is the service or API routes for version 1
 |
 */
+
+// Auth
+Route::post('/o/auth', 'Auth\AuthController@auth');
+
 Route::group(['prefix' => 'api/v1/'], function() {
-    // Auth
-    Route::group(['prefix' => 'o/auth'], function() {
-        Route::post('/', 'Auth\AuthController@auth');
-        Route::post('/me', 'Auth\AuthController@info');
-    });
+    // Get Profile
+    Route::post('/me', 'Auth\AuthController@info');
 
     // Users
     Route::group(['prefix' => 'users'], function() {

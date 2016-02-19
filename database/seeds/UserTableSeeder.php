@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
                 'firstname'         => 'alleo',
                 'middlename'        => 'pineda',
                 'lastname'          => 'indong',
-                'email'             => 'admin@javalogy.ph',
+                'username'          => 'admin',
                 'password'          => Hash::make('password')
             ],
             [
@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder
                 'firstname'         => 'mark wayne',
                 'middlename'        => 'gurrea',
                 'lastname'          => 'pulido',
-                'email'             => 'cashier@javalogy.ph',
+                'username'          => 'cashier',
                 'password'          => Hash::make('password')
             ],
             [
@@ -35,7 +35,7 @@ class UserTableSeeder extends Seeder
                 'firstname'         => 'waiter',
                 'middlename'        => '',
                 'lastname'          => 'waiter',
-                'email'             => 'waiter@javalogy.ph',
+                'username'          => 'waiter',
                 'password'          => Hash::make('password')
             ],
             [
@@ -43,7 +43,7 @@ class UserTableSeeder extends Seeder
                 'firstname'         => 'kitchen',
                 'middlename'        => 'k',
                 'lastname'          => 'kitchen',
-                'email'             => 'kitchen@javalogy.ph',
+                'username'          => 'kitchen',
                 'password'          => Hash::make('password')
             ]
         ];
