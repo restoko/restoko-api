@@ -29,6 +29,8 @@ class AuthController extends ApiController
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
+        //$token = ['token' => $token];
+
         // all good so return the token
         return response()->json(compact('token'));
     }
