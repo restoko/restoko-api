@@ -15,13 +15,78 @@ class CategoryTableSeeder extends Seeder
 
         $categories = [
             [
-                'name'  => 'Beverages',
-                'slug'  => 'beverages',
+                'name'  => 'Non-coffee based drinks',
+                'slug'  => 'non-coffee-based-drinks',
                 'description'   => 'inumin'
             ],
             [
-                'name'  => 'Sandwitches',
-                'slug'  => 'sandwitches',
+                'name'  => 'Javalogy Classics',
+                'slug'  => 'javalogy-classics',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Javalogy Specialties',
+                'slug'  => 'javalogy-specialties',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Frost',
+                'slug'  => 'frost',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Over-Iced',
+                'slug'  => 'over-iced',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Signature Drinks',
+                'slug'  => 'signature-drinks',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Alcoholic Coffee Beverages',
+                'slug'  => 'javalogy-classics',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Gourmet, Burgers, Paninis and Quesadillas',
+                'slug'  => 'gourmet-burgers-paninis-quesadillas',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Student Meals',
+                'slug'  => 'student-meals',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Pizzas and Salads',
+                'slug'  => 'pizzas-salads',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Rice Extras',
+                'slug'  => 'rice-extras',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Chiefs Recommendations',
+                'slug'  => 'chiefs-recommendations',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Appetizers',
+                'slug'  => 'appetizers',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Pasta',
+                'slug'  => 'pasta',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Desserts',
+                'slug'  => 'desserts',
                 'description'   => 'sandwitches'
             ]
         ];
