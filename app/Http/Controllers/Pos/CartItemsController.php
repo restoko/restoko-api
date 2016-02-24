@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Pos;
 
 use App\Http\Controllers\ApiController;
 use App\Models\CartItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartItemsController extends ApiController
@@ -23,16 +24,29 @@ class CartItemsController extends ApiController
             return $this->responseOk($item);
         }
 
+        // Get product price
+        $price = $this->getProductPrice($productId);
+
         // Create new item
         $data = [
             'cart_id'       => $cartId,
             'product_id'    => $productId,
-            'quantity'      => $qty
+            'quantity'      => $qty,
+            'unit_price'    => $price,
+            'status'        => 'pending'
         ];
 
         $item = CartItem::create($data);
 
         return $this->responseOk($item);
+    }
+
+    private function getProductPrice($productId)
+    {
+        $price = 0;
+        $product = Product::where('id', $productId)->first();
+
+        return $product['price'];
     }
 
     /**

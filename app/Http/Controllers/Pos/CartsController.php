@@ -19,14 +19,41 @@ class CartsController extends ApiController
     {
         $cart = Cart::with('items.product.category')
             ->where('table_id', $tableId)
-            ->where('status', Cart::ACTIVE)
+            ->where('status', Cart::PENDING)
             ->first();
 
         if (! $cart) {
-            return $this->responseNotFound(['There is no cart with that id']);
+            return $this->responseNotFound(['There is no cart with that table id']);
         }
 
-        return $this->responseOk($cart);
+        $cart = $this->parseCart($cart);
+
+        return response()->json($cart);
+    }
+
+    private function parseCart($cart)
+    {
+        $items = $cart['items'];
+        unset($cart['items']);
+
+        $result = [
+            'info' => $cart->toArray(),
+            'items' => []
+        ];
+
+        foreach($items as $item) {
+            $result['items'][] = [
+                'item_id'           => $item['id'],
+                'category'          => $item['product']['category']['name'],
+                'product_picture'   => $item['product']['picture'],
+                'product_name'      => $item['product']['name'],
+                'product_price'     => $item['unit_price'],
+                'quantity'          => $item['quantity'],
+                'status'            => $item['status']
+            ];
+        }
+
+        return $result;
     }
 
     /**
