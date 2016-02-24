@@ -38,7 +38,7 @@ class CartItemsController extends ApiController
 
         $item = CartItem::create($data);
 
-        return $this->responseOk($item);
+        return response()->json($item);
     }
 
     private function getProductPrice($productId)
