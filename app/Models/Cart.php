@@ -8,6 +8,7 @@ class Cart extends Model
 {
     const COMPLETED = 'completed';
     const ACTIVE    = 'active';
+    const PENDING   = 'pending';
     const CANCELLED = 'cancelled';
 
     protected $table = 'carts';

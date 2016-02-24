@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pos;
 use App\Http\Controllers\ApiController;
 use App\Models\Cart;
 use App\Models\Table;
+use Illuminate\Http\Request;
 
 class CartsController extends ApiController
 {
@@ -34,8 +35,11 @@ class CartsController extends ApiController
      * @param $tableId
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function createNewCart($tableId)
+    public function createNewCart(Request $request)
     {
+        $input = $request->all();
+        $tableId = $input['table_id'];
+
         // Check if table is available
         if (! $this->tableAvailable($tableId)) {
             return $this->responseBadRequest(['Table is not available']);
@@ -47,9 +51,9 @@ class CartsController extends ApiController
         }
 
         // Create New Cart
-        $cart = $this->createCart($tableId);
+        $cart = $this->createCart($input);
 
-        return $this->responseOk($cart);
+        return response()->json($cart);
     }
 
     /**
@@ -58,13 +62,8 @@ class CartsController extends ApiController
      * @param $tableId
      * @return static
      */
-    private function createCart($tableId)
+    private function createCart($data)
     {
-        $data = [
-            'table_id'  => $tableId,
-            'status'    => Cart::ACTIVE
-        ];
-
         return Cart::create($data);
     }
 
