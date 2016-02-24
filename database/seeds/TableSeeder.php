@@ -16,7 +16,7 @@ class TableSeeder extends Seeder
                 [
                     'name'  => 'table '.$i,
                     'slug'  => 'table-'.$i,
-                    'status'    => 'occupied'
+                    'status'    => 'available'
                 ]
             );
         }
