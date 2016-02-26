@@ -19,7 +19,9 @@ class CartsController extends ApiController
     {
         $cart = Cart::with('items.product.category')
             ->where('table_id', $tableId)
-            ->where('status', Cart::PENDING)
+            ->Where(function($q) {
+                $q->where('status', Cart::PENDING)->orWhere('status', Cart::CONFIRMED);
+            })
             ->first();
 
         if (! $cart) {
@@ -54,6 +56,26 @@ class CartsController extends ApiController
         }
 
         return $result;
+    }
+
+    public function confirmOrder($cartId)
+    {
+        $cart = Cart::where('id', $cartId)->update(['status' => CART::CONFIRMED]);
+
+        return $this->responseOk($cart);
+    }
+
+    public function completeOrder($cartId)
+    {
+        $cart = Cart::where('id', $cartId)->update(['status' => CART::COMPLETED]);
+        $cart = Cart::where('id', $cartId)->first();
+
+        // Update the table status
+        if (! $this->makeTableAvailable($cart['table_id'])) {
+            return $this->responseBadRequest(['Table not found']);
+        }
+
+        return $this->responseOk($cart);
     }
 
     /**
@@ -123,6 +145,20 @@ class CartsController extends ApiController
     {
         $table = Table::where('id', $tableId)
             ->update(['status' => Table::OCCUPIED]);
+
+        return $table;
+    }
+
+    /**
+     * Make the table occupied
+     *
+     * @param $tableId
+     * @return mixed
+     */
+    private function makeTableAvailable($tableId)
+    {
+        $table = Table::where('id', $tableId)
+            ->update(['status' => Table::AVAILABLE]);
 
         return $table;
     }

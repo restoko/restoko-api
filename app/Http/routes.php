@@ -79,7 +79,10 @@ Route::group(['prefix' => 'api/v1/'], function() {
     Route::group(['prefix' => 'carts'], function() {
         Route::get('/{tableId}', 'Pos\CartsController@getCart');
         Route::post('/create', 'Pos\CartsController@createNewCart');
+        Route::post('/confirm/{cartId}', 'Pos\CartsController@confirmOrder');
+        Route::post('/complete/{cartId}', 'Pos\CartsController@completeOrder');
         Route::post('/{cartId}/items', 'Pos\CartItemsController@addItemToCart');
+        Route::post('/{cartId}/items/{productId}/delete', 'Pos\CartItemsController@removeItemFromCart');
     });
 
     // Kitchen

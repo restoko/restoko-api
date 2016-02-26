@@ -69,4 +69,13 @@ class CartItemsController extends ApiController
 
         return $item;
     }
+
+    public function removeItemFromCart($cartId, $productId)
+    {
+
+        \Log::info("Deleting cartId ".$cartId." with product ".$productId);
+        $item = CartItem::where('cart_id', $cartId)->where('product_id', $productId)->forceDelete();
+
+        return $this->responseOk($item);
+    }
 }
