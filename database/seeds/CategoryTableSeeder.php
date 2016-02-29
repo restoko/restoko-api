@@ -15,6 +15,26 @@ class CategoryTableSeeder extends Seeder
 
         $categories = [
             [
+                'name'  => 'Appetizers',
+                'slug'  => 'appetizers',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Chefs Recommendations',
+                'slug'  => 'chiefs-recommendations',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Student Meals',
+                'slug'  => 'student-meals',
+                'description'   => 'sandwitches'
+            ],
+            [
+                'name'  => 'Pizzas and Salads',
+                'slug'  => 'pizzas-salads',
+                'description'   => 'sandwitches'
+            ],
+            [
                 'name'  => 'Non-coffee based drinks',
                 'slug'  => 'non-coffee-based-drinks',
                 'description'   => 'inumin'
@@ -55,28 +75,8 @@ class CategoryTableSeeder extends Seeder
                 'description'   => 'sandwitches'
             ],
             [
-                'name'  => 'Student Meals',
-                'slug'  => 'student-meals',
-                'description'   => 'sandwitches'
-            ],
-            [
-                'name'  => 'Pizzas and Salads',
-                'slug'  => 'pizzas-salads',
-                'description'   => 'sandwitches'
-            ],
-            [
                 'name'  => 'Rice Extras',
                 'slug'  => 'rice-extras',
-                'description'   => 'sandwitches'
-            ],
-            [
-                'name'  => 'Chiefs Recommendations',
-                'slug'  => 'chiefs-recommendations',
-                'description'   => 'sandwitches'
-            ],
-            [
-                'name'  => 'Appetizers',
-                'slug'  => 'appetizers',
                 'description'   => 'sandwitches'
             ],
             [
