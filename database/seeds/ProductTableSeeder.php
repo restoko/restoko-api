@@ -20,7 +20,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'tex-mex-nachos',
                 'description' => 'Platter of Ncho Chips Topped with Sautees Beef, Cheese Saucce and Flavored Dressing.',
                 'price' => '250',
-                'picture' => 'image1.jpeg'
+                'picture' => url('/uploads/image1.jpeg')
             ],
             [
                 'category_id'   => 1,
@@ -28,7 +28,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'java-chicken-wings',
                 'description' => 'Deep Fried 3 pieces Chicken wings Coated with BBQ Sauce Served with Crudities in Java Aioli',
                 'price' => '140',
-                'picture' => 'image2.jpeg'
+                'picture' => url('/uploads/image2.jpeg')
             ],
             [
                 'category_id'   => 2,
@@ -36,7 +36,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'javalicious-braised-short-ribs-bbq',
                 'description' => 'Slow cooked Braised Short ribs Served with Com and Carrots Mashed Potatoes with Java BBQ Sauce',
                 'price' => '275',
-                'picture' => 'image3.jpeg'
+                'picture' => url('/uploads/image3.jpeg')
             ],
             [
                 'category_id'   => 2,
@@ -44,7 +44,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'grilled-pork-steak',
                 'description' => 'Marinated Pork Steak Grilled to Perfection Served with Buttered Vegetables, Rice and Java Gravy',
                 'price' => '280',
-                'picture' => 'image4.jpeg'
+                'picture' => url('/uploads/image4.jpeg')
             ],
             [
                 'category_id'   => 2,
@@ -52,7 +52,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'product-5',
                 'description' => 'Crispy Pan- Fried Fish fillet  Coated with Herbs and Nuts Served with Green Salad and Rice',
                 'price' => '190',
-                'picture' => 'image5.jpeg'
+                'picture' => url('/uploads/image5.jpeg')
             ],
             [
                 'category_id'   => 3,
@@ -60,7 +60,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'combo-1',
                 'description' => 'Breaded prok with MushrooM Gravy, Rice, Coleslaw, Blue Lemonade, Free Soup',
                 'price' => '79',
-                'picture' => 'image6.jpeg'
+                'picture' => url('/uploads/image6.jpeg')
             ],
             [
                 'category_id'   => 3,
@@ -68,7 +68,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'combo-2',
                 'description' => 'Grilled chicken Breast Inasal,Coleslaw, Rice, Blue Lemonade, Free Soup',
                 'price' => '79',
-                'picture' => 'image7.jpeg'
+                'picture' => url('/uploads/image7.jpeg')
             ],
             [
                 'category_id'   => 3,
@@ -76,7 +76,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'combo-3',
                 'description' => 'Stir-Fried Beef and Vegetables Salpicao, Coleslaw, Rice, Blue Lemonade, Free Soup',
                 'price' => '99',
-                'picture' => 'image8.jpeg'
+                'picture' => url('/uploads/image8.jpeg')
             ],
             [
                 'category_id'   => 4,
@@ -84,7 +84,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'product-7',
                 'description' => 'Our Version of Caesar salad, Lettuce, Bacon, Croutons, Parmesan Cheese Served with Homemade Caezar Dressing',
                 'price' => '155',
-                'picture' => 'image9.jpeg'
+                'picture' => url('/uploads/image9.jpeg')
             ],
             [
                 'category_id'   => 4,
@@ -92,7 +92,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'product-7',
                 'description' => 'Lettuce, Tomato, Turnips, Carrots, Cucumber, Bell Peppers Served with Honey Orange Vinaigratte',
                 'price' => '115',
-                'picture' => 'image10.jpeg'
+                'picture' => url('/uploads/image10.jpeg')
             ],
             [
                 'category_id'   => 4,
@@ -100,7 +100,7 @@ class ProductTableSeeder extends Seeder
                 'slug'  => 'product-7',
                 'description' => 'Marinated Grilled chicken with Creamy White Sauce over Thinly Baked Crust',
                 'price' => '165',
-                'picture' => 'image11.jpeg'
+                'picture' => url('/uploads/image11.jpeg')
             ]
         ];
 
