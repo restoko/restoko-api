@@ -70,6 +70,46 @@ class CategoryTableSeeder extends Seeder
                 'description'   => 'sandwitches'
             ],
             [
+                'name'  => 'Shooters',
+                'slug'  => 'shooters',
+                'description'   => 'shooters'
+            ],
+            [
+                'name'  => 'Cocktails',
+                'slug'  => 'cocktails',
+                'description'   => 'cocktails'
+            ],
+            [
+                'name'  => 'Beers',
+                'slug'  => 'beers',
+                'description'   => 'beers'
+            ],
+            [
+                'name'  => 'Specialty',
+                'slug'  => 'specialty',
+                'description'   => 'specialty'
+            ],
+            [
+                'name'  => 'On The Rocks',
+                'slug'  => 'on-the-rocks',
+                'description'   => 'on the rocks'
+            ],
+            [
+                'name'  => 'Tequilla Shots',
+                'slug'  => 'tequilla-shots',
+                'description'   => 'tequilla shots'
+            ],
+            [
+                'name'  => 'Cogna Shots',
+                'slug'  => 'cogna-shots',
+                'description'   => 'cogna-shots'
+            ],
+            [
+                'name'  => 'Per Bottle',
+                'slug'  => 'per-bottle',
+                'description'   => 'per bottle'
+            ],
+            [
                 'name'  => 'Gourmet, Burgers, Paninis and Quesadillas',
                 'slug'  => 'gourmet-burgers-paninis-quesadillas',
                 'description'   => 'sandwitches'
@@ -88,7 +128,8 @@ class CategoryTableSeeder extends Seeder
                 'name'  => 'Desserts',
                 'slug'  => 'desserts',
                 'description'   => 'sandwitches'
-            ]
+            ],
+
         ];
 
         foreach ($categories as $category) {

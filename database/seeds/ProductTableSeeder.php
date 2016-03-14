@@ -101,7 +101,48 @@ class ProductTableSeeder extends Seeder
                 'description' => 'Marinated Grilled chicken with Creamy White Sauce over Thinly Baked Crust',
                 'price' => '165',
                 'picture' => 'http://restoko.aindong.com/uploads/image11.jpeg'
-            ]
+            ],
+            [
+                'category_id'   => 12,
+                'name' => 'Blowjob',
+                'slug'  => 'product-7',
+                'description' => '',
+                'price' => '100',
+                'picture' => ''
+            ],
+            [
+                'category_id'   => 12,
+                'name' => 'Blow Job Revenge',
+                'slug'  => 'product-7',
+                'description' => '',
+                'price' => '100',
+                'picture' => ''
+            ],
+            [
+                'category_id'   => 12,
+                'name' => '4th of July Tooter',
+                'slug'  => 'product-7',
+                'description' => '',
+                'price' => '100',
+                'picture' => ''
+            ],
+            [
+                'category_id'   => 12,
+                'name' => 'Organism',
+                'slug'  => 'product-7',
+                'description' => '',
+                'price' => '100',
+                'picture' => ''
+            ],
+            [
+                'category_id'   => 12,
+                'name' => 'Flaming Ferrari',
+                'slug'  => 'product-7',
+                'description' => '',
+                'price' => '100',
+                'picture' => ''
+            ],
+
         ];
 
         foreach ($products as $product) {
