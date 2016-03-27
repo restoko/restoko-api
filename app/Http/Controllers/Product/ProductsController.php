@@ -40,7 +40,7 @@ class ProductsController extends ApiController
 
         $destinationPath = public_path('uploads');
         $fileName = uniqid();
-
+print_r($request->file('picture'));exit;
         if ($request->file('picture')->isValid()) {
             $request->file('picture')->move($destinationPath, $fileName);
         }
