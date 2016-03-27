@@ -36,7 +36,7 @@ class ProductsController extends ApiController
     public function store(StoreProductRequest $request)
     {
         $input = $request->all();
-
+        print_r($input);exit;
         $destinationPath = public_path('/uploads');
         $fileName = uniqid();
         if ($request->file('picture')->isValid()) {
