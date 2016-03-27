@@ -18,6 +18,7 @@ class CreateCartItemsTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->integer('quantity');
             $table->double('unit_price');
+            $table->double('discount_percentage');
             $table->string('status');
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ class CreateCartsTable extends Migration
             $table->integer('table_id')->unsigned();
             $table->integer('no_of_people');
             $table->string('type');
+            $table->double('discount_percentage');
             $table->string('status');
             $table->timestamps();
         });
