@@ -35,7 +35,16 @@ class ProductsController extends ApiController
 
     public function store(StoreProductRequest $request)
     {
-        $input= $request->all();
+        return 'hello';
+        $input = $request->all();
+        print_r($input);exit;
+        $destinationPath = public_path('/uploads');
+        $fileName = uniqid();
+        if ($request->file('picture')->isValid()) {
+            $request->file('photo')->move($destinationPath, $fileName);
+        }
+
+        $input['picture'] = url('/uploads/').$fileName;
         $input['slug']= str_replace(' ','_', strtolower($input['name']));
 
         $product = Product::create($input);
