@@ -46,6 +46,7 @@ class CartsController extends ApiController
         foreach($items as $item) {
             $result['items'][] = [
                 'item_id'           => $item['id'],
+                'discount_percentage'   => $item['discount_percentage'],
                 'category'          => $item['product']['category']['name'],
                 'product_picture'   => $item['product']['picture'],
                 'product_name'      => $item['product']['name'],
