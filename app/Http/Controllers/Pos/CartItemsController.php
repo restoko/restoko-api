@@ -70,6 +70,18 @@ class CartItemsController extends ApiController
         return $item;
     }
 
+    public function applyProductDiscount(Request $request, $itemId)
+    {
+        $input = $request->all();
+        $product = CartItem::where('id', $itemId)->update($input);
+
+        if (! $product) {
+            return $this->responseBadRequest('Failed to add a product discount');
+        }
+
+        return $this->responseOk($product);
+    }
+
     public function removeItemFromCart($cartId, $productId)
     {
 

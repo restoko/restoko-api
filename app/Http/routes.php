@@ -85,6 +85,10 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::post('/{cartId}/items/{productId}/delete', 'Pos\CartItemsController@removeItemFromCart');
     });
 
+    Route::group(['prefix' => 'cart-items'], function() {
+        Route::put('/discount/{itemId}', 'Pos\CartItemsController@applyProductDiscount');
+    });
+
     // Kitchen
     Route::group(['prefix' => 'kitchen'], function() {
         Route::get('/', 'Kitchen\CartItemsController@getPendingOrders');
