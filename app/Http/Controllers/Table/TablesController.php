@@ -25,6 +25,7 @@ class TablesController extends ApiController
     {
         $input = $request->all();
         $input['slug'] = str_replace(' ', '_', strtolower($input['name']));
+        $input['status'] = 'available';
 
         $table = Table::create($input);
 
