@@ -78,6 +78,7 @@ Route::group(['prefix' => 'api/v1/'], function() {
     // Carts
     Route::group(['prefix' => 'carts'], function() {
         Route::get('/{tableId}', 'Pos\CartsController@getCart');
+        Route::put('/discount/{cartId}', 'Pos\CartsController@discountedCart');
         Route::post('/create', 'Pos\CartsController@createNewCart');
         Route::post('/confirm/{cartId}', 'Pos\CartsController@confirmOrder');
         Route::post('/complete/{cartId}', 'Pos\CartsController@completeOrder');

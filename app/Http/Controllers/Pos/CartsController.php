@@ -106,6 +106,17 @@ class CartsController extends ApiController
         return response()->json($cart);
     }
 
+    public function discountedCart(Request $request, $cartId)
+    {
+        $input = $request->only('discount_percentage');
+
+        $cart = Cart::where('id', $cartId)->update([
+            'discount_percentage' => $input['discount_percentage'
+            ]]);
+
+        return $this->responseOk($cart);
+    }
+
     /**
      * Create the cart
      *
