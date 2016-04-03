@@ -61,11 +61,11 @@ class ProductsController extends ApiController
 
         $destinationPath = public_path('uploads');
         $fileName = uniqid();
-
+        print_r($request->file('picture'));exit;
         if ($request->file('picture')->isValid()) {
             $request->file('picture')->move($destinationPath, $fileName);
         }
-        print_r($request->file('picture'));exit;
+
         $input['picture'] = url('uploads').'/'.$fileName;
         $input['slug']= str_replace(' ','_', strtolower($input['name']));
 
