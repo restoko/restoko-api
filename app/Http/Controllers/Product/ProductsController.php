@@ -56,7 +56,7 @@ class ProductsController extends ApiController
     public function update(StoreProductRequest $request,$productId)
     {
         $input = $request->all();
-
+        print_r($input);exit;
         unset($input['picture']);
 
         $destinationPath = public_path('uploads');
