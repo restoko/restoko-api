@@ -83,6 +83,7 @@ class ProductsController extends ApiController
                 'slug'  => $product['slug'],
                 'name'  => strtoupper($product['name']),
                 'category'  => $product['category']['name'],
+                'category_id'   => $product['category_id'],
                 'price' => $product['price'],
                 'description'   => $product['description'],
                 'picture'       => $product['picture'],
