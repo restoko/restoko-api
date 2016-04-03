@@ -63,7 +63,7 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::get('/', 'Table\TablesController@all');
         Route::post('/', 'Table\TablesController@store');
         Route::post('/{tableId}', 'Table\TablesController@update');
-        Route::post('/{tableId}/delete', 'Table\TablesController@destroy');
+        Route::delete('/{tableId}', 'Table\TablesController@destroy');
     });
 
     // Products
@@ -72,7 +72,7 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::get('/{productId}', 'Product\ProductsController@getByProductId');
         Route::post('/', 'Product\ProductsController@store');
         Route::post('/{productId}','Product\ProductsController@update');
-        Route::post('/{productId}/delete','Product\ProductsController@destroy');
+        Route::delete('/{productId}','Product\ProductsController@destroy');
     });
 
     // Carts
