@@ -110,6 +110,10 @@ class CartsController extends ApiController
     {
         $input = $request->only('discount_percentage');
 
+        if (! $input['discount_percentage']) {
+            $input['discount_percentage'] = 0;
+        }
+
         $cart = Cart::where('id', $cartId)->update([
             'discount_percentage' => $input['discount_percentage'
             ]]);
