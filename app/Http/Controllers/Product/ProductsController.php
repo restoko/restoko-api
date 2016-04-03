@@ -56,6 +56,17 @@ class ProductsController extends ApiController
     public function update(StoreProductRequest $request,$productId)
     {
         $input = $request->all();
+
+        unset($input['picture']);
+
+        $destinationPath = public_path('uploads');
+        $fileName = uniqid();
+
+        if ($request->file('picture')->isValid()) {
+            $request->file('picture')->move($destinationPath, $fileName);
+        }
+
+        $input['picture'] = url('uploads').'/'.$fileName;
         $input['slug']= str_replace(' ','_', strtolower($input['name']));
 
         $product = Product::where('id', $productId)->update($input);
