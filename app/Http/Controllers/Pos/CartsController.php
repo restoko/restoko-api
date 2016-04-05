@@ -48,6 +48,7 @@ class CartsController extends ApiController
                 'item_id'           => $item['id'],
                 'discount_percentage'   => $item['discount_percentage'],
                 'category'          => $item['product']['category']['name'],
+                'prodcut_id'        => $item['product']['id'],
                 'product_picture'   => $item['product']['picture'],
                 'product_name'      => $item['product']['name'],
                 'product_price'     => $item['unit_price'],
