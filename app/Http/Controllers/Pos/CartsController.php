@@ -53,6 +53,7 @@ class CartsController extends ApiController
                 'product_name'      => $item['product']['name'],
                 'product_price'     => $item['unit_price'],
                 'quantity'          => $item['quantity'],
+                'senior_citizen'    => $item['senior_citizen'],
                 'status'            => $item['status']
             ];
         }
