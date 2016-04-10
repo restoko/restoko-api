@@ -24,7 +24,7 @@ class SalesController extends ApiController
             ->whereDate('created_at', '>=', $startDate->toDateString())
             ->whereDate('created_at', '<=', $endDate->toDateString())
             ->get();
-return $carts;
+
         $data = [];
 
         $difference = $endDate->diffInDays($startDate);
@@ -51,7 +51,7 @@ return $carts;
     {
         $cartItems = CartItem::where('cart_id', $cartId)->get();
         $total = 0;
-
+return $cartItems;
         foreach ($cartItems as $item) {
             $unitPrice = $item['unit_price'];
             $quantity = $item['quantity'];
