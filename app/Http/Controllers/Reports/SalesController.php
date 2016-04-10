@@ -51,18 +51,18 @@ class SalesController extends ApiController
     {
         $cartItems = CartItem::where('cart_id', $cartId)->get();
         $total = 0;
-        
+
         foreach ($cartItems as $item) {
             $unitPrice = $item['unit_price'];
             $quantity = $item['quantity'];
             $productDiscount = $item['discount_percentage'] / 100;
             $senior = $item['senior_citizen'];
 
-            $total = $unitPrice * $quantity;
+            $total += $unitPrice * $quantity;
 
             if ($productDiscount) {
                 $discountAmount = $total * $productDiscount;
-                $total = $total - $discountAmount;
+                $total += $total - $discountAmount;
             }
 
             if ($senior) {
@@ -70,9 +70,9 @@ class SalesController extends ApiController
 
                 $vat = ($unitPrice / 1.12) * 0.12;
                 $unitPrice = $unitPrice - $vat;
-                $total = $unitPrice * $quantity;
+                $tmpTotal = $unitPrice * $quantity;
 
-                $total = $total - $discountAmount;
+                $total += $tmpTotal - $discountAmount;
             }
         }
 
