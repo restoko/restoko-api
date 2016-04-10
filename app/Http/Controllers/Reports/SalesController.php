@@ -22,7 +22,7 @@ class SalesController extends ApiController
 
         $carts = Cart::where('status', 'completed')
             ->whereDate('created_at', '>=', $startDate->toDateString())
-            ->whereDate('created_at', '<=', $endDate->toDateString())
+            ->whereDate('created_at', '<=', $endDate->addDays(1)->toDateString())
             ->get();
 
         $data = [];
@@ -74,9 +74,8 @@ class SalesController extends ApiController
 
                 $total = $total - $discountAmount;
             }
-
-            return $total;
-
         }
+
+        return $total;
     }
 }
