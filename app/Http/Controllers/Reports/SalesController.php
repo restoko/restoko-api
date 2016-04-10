@@ -68,7 +68,7 @@ class SalesController extends ApiController
             ->take(5)
             ->get();
 
-        return $cartItems;
+        return $this->responseOk($cartItems);
     }
 
     private function getTotalByCart($cartId)
