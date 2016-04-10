@@ -22,9 +22,9 @@ class SalesController extends ApiController
 
         $carts = Cart::where('status', 'completed')
             ->whereDate('created_at', '>=', $startDate->toDateString())
-            ->whereDate('created_at', '<=', $endDate->addDays(1)->toDateString())
+            ->whereDate('created_at', '<=', $endDate->toDateString())
             ->get();
-
+return $carts;
         $data = [];
 
         $difference = $endDate->diffInDays($startDate);
