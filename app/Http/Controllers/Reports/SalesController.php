@@ -59,10 +59,12 @@ class SalesController extends ApiController
         }
 
         $cartItems = Cart::join('cart_items', 'carts.id', '=', 'cart_items.cart_id')
-            ->select(\DB::raw('COUNT(quantity) as quantity'), 'cart_items.product_id')
+            ->select(\DB::raw('COUNT(quantity) as totalQuantity'), 'cart_items.product_id')
             ->whereDate('carts.created_at', '>=', $startDate->toDateString())
             ->whereDate('carts.created_at', '<=', $endDate->toDateString())
+            ->orderBy('totalQuantity', 'DESC')
             ->groupBy('cart_items.product_id')
+            ->take(5)
             ->get();
 
         return $cartItems;
