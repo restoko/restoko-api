@@ -90,6 +90,10 @@ Route::group(['prefix' => 'api/v1/'], function() {
         Route::put('/discount/{itemId}', 'Pos\CartItemsController@applyProductDiscount');
     });
 
+    Route::group(['prefix' => 'sales'], function() {
+        Route::get('/', 'Reports\SalesController@getSales');
+    });
+
     // Kitchen
     Route::group(['prefix' => 'kitchen'], function() {
         Route::get('/', 'Kitchen\CartItemsController@getPendingOrders');
