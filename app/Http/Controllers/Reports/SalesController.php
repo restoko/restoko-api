@@ -62,6 +62,7 @@ class SalesController extends ApiController
             ->select(\DB::raw('COUNT(quantity) as quantity'), 'cart_items.product_id')
             ->whereDate('carts.created_at', '>=', $startDate->toDateString())
             ->whereDate('carts.created_at', '<=', $endDate->toDateString())
+            ->groupBy('cart_items.product_id')
             ->get();
 
         return $cartItems;
