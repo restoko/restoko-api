@@ -51,7 +51,7 @@ class SalesController extends ApiController
     {
         $cartItems = CartItem::where('cart_id', $cartId)->get();
         $total = 0;
-        return $cartId;
+        
         foreach ($cartItems as $item) {
             $unitPrice = $item['unit_price'];
             $quantity = $item['quantity'];
