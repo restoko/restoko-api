@@ -58,14 +58,10 @@ class SalesController extends ApiController
             $productDiscount = $item['discount_percentage'] / 100;
             $senior = $item['senior_citizen'];
 
-            $total += $unitPrice * $quantity;
-
             if ($productDiscount) {
                 $discountAmount = $total * $productDiscount;
                 $total += $total - $discountAmount;
-            }
-
-            if ($senior) {
+            } else if ($senior) {
                 $discountAmount = $total * $productDiscount;
 
                 $vat = ($unitPrice / 1.12) * 0.12;
@@ -73,6 +69,8 @@ class SalesController extends ApiController
                 $tmpTotal = $unitPrice * $quantity;
 
                 $total += $tmpTotal - $discountAmount;
+            } else {
+                $total += $unitPrice * $quantity;
             }
         }
 
