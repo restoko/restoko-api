@@ -59,9 +59,9 @@ class SalesController extends ApiController
         }
 
         $cartItems = Cart::join('cart_items', 'carts.id', '=', 'cart_items.cart_id')
-            ->select('COUNT(quantity) as quantity, product_id')
-            ->whereDate('created_at', '>=', $startDate->toDateString())
-            ->whereDate('created_at', '<=', $endDate->toDateString())
+            ->select('COUNT(cart_items.quantity) as quantity, cart_items.product_id')
+            ->whereDate('carts.created_at', '>=', $startDate->toDateString())
+            ->whereDate('carts.created_at', '<=', $endDate->toDateString())
             ->get();
 
         return $cartItems;
