@@ -92,6 +92,7 @@ Route::group(['prefix' => 'api/v1/'], function() {
 
     Route::group(['prefix' => 'sales'], function() {
         Route::get('/', 'Reports\SalesController@getSales');
+        Route::get('/products', 'Reports\SalesController@getSales');
     });
 
     // Kitchen

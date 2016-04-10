@@ -47,6 +47,26 @@ class SalesController extends ApiController
         return $this->responseOk(array_values($data));
     }
 
+    public function getTopProducts(Request $request)
+    {
+        $input = $request->all();
+        $startDate = Carbon::today('Asia/Manila')->subDays(30);
+        $endDate = Carbon::today('Asia/Manila');
+
+        if (isset($input['from'])) {
+            $startDate = Carbon::createFromTimestamp(strtotime($input['from']));
+            $endDate = Carbon::createFromTimestamp(strtotime($input['to']));
+        }
+
+        $cartItems = Cart::join('cart_items', 'carts.id', '=', 'cart_items.cart_id')
+            ->select('COUNT(quantity) as quantity, product_id')
+            ->whereDate('created_at', '>=', $startDate->toDateString())
+            ->whereDate('created_at', '<=', $endDate->toDateString())
+            ->get();
+
+        return $cartItems;
+    }
+
     private function getTotalByCart($cartId)
     {
         $cartItems = CartItem::where('cart_id', $cartId)->get();
