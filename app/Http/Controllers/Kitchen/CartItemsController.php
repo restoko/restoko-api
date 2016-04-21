@@ -40,8 +40,10 @@ class CartItemsController extends ApiController
     {
         $item = CartItem::where('id', $cartItemId)->update(['status' => 'completed']);
 
-        $item = CartItem::where('id', $cartItemId)->get();
+        $items = CartItem::with('product', 'cart.table')
+            ->where('status', 'pending')
+            ->get();
 
-        return $this->responseOk($this->parseItems($item->toArray()));
+        return $this->responseOk($this->parseItems($items->toArray()));
     }
 }
