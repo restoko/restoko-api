@@ -98,5 +98,6 @@ Route::group(['prefix' => 'api/v1/'], function() {
     // Kitchen
     Route::group(['prefix' => 'kitchen'], function() {
         Route::get('/', 'Kitchen\CartItemsController@getPendingOrders');
+        Route::patch('/{cartItemId}', 'Kitchen\CartItemsController@completeOrder');
     });
 });

@@ -35,4 +35,11 @@ class CartItemsController extends ApiController
 
         return $result;
     }
+
+    public function completeOrder($cartItemId)
+    {
+        $item = CartItem::where('id', $cartItemId)->update(['status' => 'completed']);
+
+        return $this->responseOk($item);
+    }
 }
